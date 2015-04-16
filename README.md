@@ -1,6 +1,4 @@
-# Integrating-Docker-with-OpenStack-With-OpenContrail-For-SDN
-Describe architecture design and deployment method of integrating Docker with OpenStack and OpenContrail.  
-Docker has been steadily gaining momentum for it agility, simplexity and performance. Docker containers run like traditional processs but with resource isolation. It comes with native lightweight API for high level operations complemnting Docker CLIs. Integrating Docker with OpenStack allow Containers to ve deployed and managed jusy like VMs, with all relative mature orachstration layer(i.e. Heat, Murano), centerlized management (i.e. Horizon, Nova) and functional services (i.e. Keystone, SDN and tec).
+Docker has been steadily gaining momentum for it agility, simplecity and performance. Docker containers run like traditional processs but with resource isolation. It comes with native lightweight API for high level operations complemnting Docker CLIs. Integrating Docker with OpenStack allow Containers to ve deployed and managed jusy like VMs, with all relative mature orachstration layer(i.e. Heat, Murano), centerlized management (i.e. Horizon, Nova) and functional services (i.e. Keystone, SDN and tec).
 
 Since Havana, Glance supports docker image format. Docker images can be imported into Glance just like VM images.
 
