@@ -12,7 +12,7 @@ Since Havana, Glance supports docker image format. Docker images can be imported
     REPOSITORY          TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
     wdc7                latest              e1adc7a45de7        4 weeks ago         344.6 MB
 
-    # docker save <docker_image_name> /tmp/<docker_iame_file>.tar
+    # docker save <docker_image_name> /tmp/<docker_image_file>.tar
     # docker save wdc7 > /tmp/wdc7.tar
     
     Import the saved docker image file to Glance
@@ -53,4 +53,18 @@ Since Havana, Glance supports docker image format. Docker images can be imported
 
 Nova-compute agent talks with Docker via linux socket or API. Nova-docker is a supported compute_driver type since Havana which allows Nova and Glance to interact with Docker. The nova-docker is s seperated component outside of OpenStack and users will need to get the source from https://github.com/stackforge/nova-docker#egg=novadocker, compile and install it on compute nodes. Up to Kilo release, a compute node must be designated as a Hypervisor node or a Docker container node. OpenStack does not support hybrid compute_driver on a single compute node up to Kilo release.  
 
-    (Detail to be added)
+    Update /etc/nova/nova.conf to specify comput_driver for the compute node. Openstack Kilo or earliuer code releases do not support hybrid mode. Only docker or KVM/XEN/QEMU is allowed for any given node.
+    
+    # cat /etc/nova/nova.conf
+    [DEFAULT]
+    ......
+    compute_driver=novadocker.virt.docker.DockerDriver
+    ......
+    
+    Install following RPMs on a OpenStack controller and compute nodes. 
+    # rpm -qa | grep docker
+    docker-1.5.0-1.el7.x86_64   <----- or newer
+    nova-docker-0.0.0.post183-1.noarch  <---- or newer
+    docker-py-1.1.0-1.noarch <--- or newer
+    
+    (More detail to be added)
