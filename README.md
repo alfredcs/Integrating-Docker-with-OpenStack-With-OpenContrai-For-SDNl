@@ -8,10 +8,15 @@ Since Havana, Glance supports docker image format. Docker images can be imported
     container_formats=ami,ari,aki,bare,ovf,ova,docker
     
     From Docker, save the Docker image to a file
-    #docker save <docker_image_name> /tmp/<docker_iame_file>.tar
+    # docker images
+    REPOSITORY          TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
+    wdc7                latest              e1adc7a45de7        4 weeks ago         344.6 MB
+
+    # docker save <docker_image_name> /tmp/<docker_iame_file>.tar
+    # docker save wdc7 > /tmp/wdc7.tar
     
     Import the saved docker image file to Glance
-    #glance image-create -is-public=True --container-format=docker --disk-format=raw --name <glance_image_name> --file <docker_iame_file>.tar
+    # glance image-create -is-public=True --container-format=docker --disk-format=raw --name <glance_image_name> --file <docker_iame_file>.tar
     
     Display the Glance images
     # openstack image list
