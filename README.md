@@ -2,7 +2,7 @@ Docker has been steadily gaining momentum for it agility, simplecity and perform
 
 Since Havana, Glance supports docker image format. Docker images can be imported into Glance just like VM images.
 
-    In /etc/glance/glance.conf, update cpntainer_formats by adding docker as one of the dipport formats.
+    In /etc/glance/glance.conf, update cpntainer_formats by adding docker as one of the supported formats.
     
     [image_format]
     container_formats=ami,ari,aki,bare,ovf,ova,docker
