@@ -1,0 +1,13 @@
+[Unit]
+Description=OpenStack Nova API Server
+After=syslog.target network.target
+
+[Service]
+Type=notify
+Restart=always
+User=root
+ExecStart=/usr/bin/nova-api
+
+[Install]
+WantedBy=multi-user.target
+

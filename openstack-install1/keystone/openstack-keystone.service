@@ -1,0 +1,14 @@
+[Unit]
+Description=OpenStack Identity (code-named Keystone) service
+After=syslog.target network.target
+
+[Service]
+Type=notify
+NotifyAccess=all
+Restart=always
+User=keystone
+ExecStart=/usr/bin/keystone-all
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

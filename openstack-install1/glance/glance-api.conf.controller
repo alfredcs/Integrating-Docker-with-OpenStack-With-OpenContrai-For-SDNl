@@ -1,0 +1,48 @@
+[DEFAULT]
+verbose=False
+debug=False
+notification_driver = noop
+registry_host = openstack_controller_vip
+registry_port = 9191
+registry_client_protocol = HTTP_CMD
+bind_port = 9293
+enable_v1_api = True
+enable_v2_api = True
+log_file = /var/log/glance/api.log
+rabbit_host = openstack_controller_vip
+rabbit_port = 5672
+rabbit_use_ssl = false
+rabbit_userid = guest
+rabbit_password = guest
+rabbit_virtual_host = /
+rabbit_notification_exchange = glance
+rabbit_notification_topic = notifications
+rabbit_durable_queues = False
+# Turn on/off delayed delete
+delayed_delete = False
+scrub_time = 43200
+scrubber_datadir = /var/lib/glance/scrubber
+image_cache_dir = /var/lib/glance/image-cache/
+registry_host = openstack_controller_vip
+registry_port = 9191
+registry_client_protocol = http
+[database]
+connection = mysql://glance:GLANCE_DBPASS@openstack_controller_vip/glance
+[image_format]
+container_formats=ami,ari,aki,bare,ovf,ova,docker
+[keystone_authtoken]
+auth_uri = HTTP_CMD://openstack_controller_vip:5000
+identity_uri = HTTP_CMD://openstack_controller_vip:35357
+admin_user = glance
+admin_tenant_name = service
+admin_password = GLANCE_KSPASS
+#insecure = True
+#auth_protocol = HTTP_CMD
+[paste_deploy]
+flavor = keystone
+[store_type_location_strategy]
+[profiler]
+[task]
+[glance_store]
+default_store = file
+filesystem_store_datadir = /var/lib/glance/images/

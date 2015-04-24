@@ -1,0 +1,50 @@
+[DEFAULT]
+log_file = /var/log/keystone/keystone.log
+log_dir = /var/log/keystone
+log_format = %(asctime)s %(levelname)8s [%(name)s] %(message)s
+log_date_format = %Y-%m-%d %H:%M:%S
+[eventlet_server]
+public_port = 5001
+admin_port = 35358
+tcp_keepalive = True
+tcp_keepidle = 10
+public_workers=2
+admin_workers=2
+[database]
+connection = mysql://keystone:<keystone_passwd_openstack>@<openstack_vip>:<vip_port>/keystone
+[assignment]
+[cache]
+[catalog]
+[credential]
+[ec2]
+[endpoint_filter]
+[endpoint_policy]
+[federation]
+[identity]
+[identity_mapping]
+[kvs]
+[ldap]
+[matchmaker_redis]
+[matchmaker_ring]
+[memcache]
+servers = local_controller:11211
+[oauth1]
+[os_inherit]
+[paste_deploy]
+config_file=keystone-paste.ini
+[policy]
+[revoke]
+[saml]
+[signing]
+[eventlet_server_ssl]
+enable = False
+#certfile = /etc/keystone/ssl/certs/server01.crt
+#keyfile = /etc/keystone/ssl/private/server01.key
+#ca_certs = /etc/keystone/ssl/certs/ca.crt
+#ca_key = /etc/keystone/ssl/private/ca.key
+cert_required = False
+[auth]
+methods = external,password,token,oauth1
+password = keystone.auth.plugins.password.Password
+token = keystone.auth.plugins.token.Token
+oauth1 = keystone.auth.plugins.oauth1.OAuth

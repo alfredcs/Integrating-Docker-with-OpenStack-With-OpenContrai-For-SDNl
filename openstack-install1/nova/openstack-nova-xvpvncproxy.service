@@ -1,0 +1,12 @@
+[Unit]
+Description=OpenStack Nova XVP VncProxy Server
+After=syslog.target network.target
+
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/bin/nova-xvpvncproxy
+
+[Install]
+WantedBy=multi-user.target
+

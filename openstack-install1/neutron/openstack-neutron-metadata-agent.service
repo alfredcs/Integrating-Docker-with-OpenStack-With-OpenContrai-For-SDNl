@@ -1,0 +1,17 @@
+[Unit]
+Description=OpenStack Neutron Metadata agent 
+After=syslog.target network.target
+
+[Service]
+Type=notify
+Restart=always
+User=root
+ExecStart=/usr/bin/neutron-metadata-agent --config-file \
+	/etc/neutron/neutron.conf --config-file \
+	/etc/neutron/metadata_agent.ini
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target
+

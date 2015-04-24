@@ -1,0 +1,17 @@
+[Unit]
+Description=OpenStack Neutrin DHCP agent 
+After=syslog.target network.target
+
+[Service]
+Type=notify
+Restart=always
+User=root
+ExecStart=/usr/bin/neutron-dhcp-agent --config-file \
+	/etc/neutron/neutron.conf --config-file \
+	/etc/neutron/dhcp_agent.ini
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target
+

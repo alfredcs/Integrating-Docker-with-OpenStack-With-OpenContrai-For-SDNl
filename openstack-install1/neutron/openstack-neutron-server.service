@@ -1,0 +1,15 @@
+[Unit]
+Description=OpenStack Neutron Server for Network as a Service
+After=syslog.target network.target
+
+[Service]
+Type=notify
+Restart=always
+User=root
+ExecStart=/usr/bin/neutron-server --config-file /etc/neutron/neutron.conf
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target
+

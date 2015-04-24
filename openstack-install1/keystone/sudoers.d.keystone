@@ -1,0 +1,3 @@
+Defaults:keystone !requiretty
+
+keystone ALL = (root) NOPASSWD: /usr/bin/keystone-all /etc/keystone/keystone.conf *

@@ -1,0 +1,28 @@
+[DEFAULT]
+notification_driver = noop
+bind_port = 9192
+enable_v1_registry = True
+enable_v2_registry = True
+rabbit_host = openstack_controller_vip
+rabbit_port = 5672
+rabbit_use_ssl = false
+rabbit_userid = guest
+rabbit_password = guest
+rabbit_virtual_host = /
+rabbit_notification_exchange = glance
+rabbit_notification_topic = notifications
+rabbit_durable_queues = False
+[database]
+connection = mysql://glance:GLANCE_DBPASS@openstack_controller_vip/glance
+[keystone_authtoken]
+#auth_uri = HTTP_CMD://openstack_controller_vip:5000/v2.0
+identity_uri = HTTP_CMD://openstack_controller_vip:35357
+admin_user = glance
+admin_tenant_name = service
+admin_password = GLANCE_KSPASS
+#auth_host = openstack_controller_vip
+#auth_protocol = HTTP_CMD 
+[paste_deploy]
+#flavor = keystone
+config_file = glance-registry-paste.ini
+[profiler]

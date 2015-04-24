@@ -1,0 +1,14 @@
+[Unit]
+Description=OpenStack Image Service (code-named Glance) API server
+After=syslog.target network.target
+
+[Service]
+Type=notify
+NotifyAccess=all
+Restart=always
+User=root
+ExecStart=/usr/bin/glance-api
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

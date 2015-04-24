@@ -1,0 +1,17 @@
+[Unit]
+Description=OpenStack Neutron openvSwitch agent 
+After=syslog.target network.target
+
+[Service]
+Type=notify
+Restart=always
+User=root
+ExecStart=/usr/bin/neutron-openvswitch-agent --config-file \
+	/etc/neutron/neutron.conf --config-file \
+	/etc/neutron/plugin.ini
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target
+
