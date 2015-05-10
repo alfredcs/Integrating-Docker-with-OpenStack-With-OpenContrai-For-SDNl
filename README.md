@@ -68,3 +68,7 @@ Nova-compute agent talks with Docker via linux socket or API. Nova-docker is a s
     docker-py-1.1.0-1.noarch <--- or newer
     
     (More detail to be added)
+    
+    (Container networking with Contrail VRF)
+    
+    (Running containers with limited change rights without enabling privileged mode)
